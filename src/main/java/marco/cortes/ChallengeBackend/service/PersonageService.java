@@ -8,7 +8,7 @@ import java.util.List;
 public interface PersonageService {
     Personage save(Personage personage);
     Personage findById(Long id);
-    List<PersonageInfo> search(String parameter, Object value);
+    List<PersonageInfo> search(String parameter, String value);
     Personage update(Personage personage, Long id);
     Personage delete(Long id);
 }

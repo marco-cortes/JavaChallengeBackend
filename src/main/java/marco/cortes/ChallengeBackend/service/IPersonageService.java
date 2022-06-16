@@ -2,6 +2,7 @@ package marco.cortes.ChallengeBackend.service;
 
 import lombok.RequiredArgsConstructor;
 import marco.cortes.ChallengeBackend.dto.PersonageInfo;
+import marco.cortes.ChallengeBackend.entity.Movie;
 import marco.cortes.ChallengeBackend.entity.Personage;
 import marco.cortes.ChallengeBackend.repo.MovieRepo;
 import marco.cortes.ChallengeBackend.repo.PersonageRepo;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Transactional
@@ -32,14 +34,22 @@ public class IPersonageService implements PersonageService {
     }
 
     @Override
-    public List<PersonageInfo> search(String parameter, Object value) {
+    public List<PersonageInfo> search(String parameter, String value) {
         //Search Personages by parameter and value
-        System.out.println(parameter);
-        System.out.println(value);
+
         //If parameter is none, return all Personages
         if(parameter.equals("none"))
             return personageInfo(personageRepo.findAll());
-        return personageInfo(personageRepo.search(parameter, value));
+        else if(parameter.equals("name"))
+            return personageInfo(personageRepo.findAllByName(value));
+        else if(parameter.equals("age"))
+            return personageInfo(personageRepo.findAllByAge(Integer.parseInt(value)));
+        else {
+            Movie movie = movieRepo.findById(Long.parseLong(value)).orElse(null);
+            if(movie == null)
+                return new ArrayList<>();
+            return personageInfo(movie.getPersonages());
+        }
     }
 
     @Override

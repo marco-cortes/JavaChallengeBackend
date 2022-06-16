@@ -18,8 +18,8 @@ public class PersonageController {
 
     @GetMapping("")
     public ResponseEntity<?> all(@RequestParam(required = false) String name,
-                                        @RequestParam(required = false) Integer age,
-                                        @RequestParam(required = false) Long movies) {
+                                        @RequestParam(required = false) String age,
+                                        @RequestParam(required = false) String movie) {
         Map<String, Object> data = new HashMap<>();
         try {
             data.put("ok", Boolean.TRUE);
@@ -29,8 +29,8 @@ public class PersonageController {
             } else if (age != null) {
                 data.put("characters", personageService.search("age", age));
                 return ResponseEntity.ok(data);
-            } else if(movies != null) {
-                data.put("characters", personageService.search("movies", movies));
+            } else if(movie != null) {
+                data.put("characters", personageService.search("movies", movie));
                 return ResponseEntity.ok(data);
             }
             data.put("characters", personageService.search("none", null));

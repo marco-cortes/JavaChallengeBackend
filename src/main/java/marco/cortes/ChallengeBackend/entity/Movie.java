@@ -21,4 +21,7 @@ public class Movie {
     @JoinColumn(nullable = false)
     @ManyToOne
     private Genre genre;
+
+    @ManyToMany
+    private List<Personage> personages;
 }
