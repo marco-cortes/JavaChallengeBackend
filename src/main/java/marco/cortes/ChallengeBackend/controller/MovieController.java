@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/movies")
+@RequestMapping("/movies")
 public class MovieController {
 
     private final MovieService movieService;

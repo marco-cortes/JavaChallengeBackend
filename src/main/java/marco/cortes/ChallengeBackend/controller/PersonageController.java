@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/characters")
+@RequestMapping("/characters")
 public class PersonageController {
 
     private final PersonageService personageService;

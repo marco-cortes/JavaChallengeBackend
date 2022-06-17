@@ -40,14 +40,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean(), keys);
-        customAuthenticationFilter.setFilterProcessesUrl("/api/auth/login");
+        customAuthenticationFilter.setFilterProcessesUrl("/auth/login");
         http.csrf().disable().
                 sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().
-                authorizeRequests().antMatchers("/api/auth/**").permitAll().
-                antMatchers(HttpMethod.GET, "/api/characters/**","/api/movies/**").hasAnyAuthority("ROLE_USER").
-                antMatchers(HttpMethod.POST, "/api/characters/**","/api/movies/**").hasAnyAuthority("ROLE_USER").
-                antMatchers(HttpMethod.PUT, "/api/characters/**","/api/movies/**").hasAnyAuthority("ROLE_USER").
-                antMatchers(HttpMethod.DELETE, "/api/characters/**","/api/movies/**").hasAnyAuthority("ROLE_USER").
+                authorizeRequests().antMatchers("/auth/**").permitAll().
+                antMatchers(HttpMethod.GET, "/characters/**","/movies/**").hasAnyAuthority("ROLE_USER").
+                antMatchers(HttpMethod.POST, "/characters/**","/movies/**").hasAnyAuthority("ROLE_USER").
+                antMatchers(HttpMethod.PUT, "/characters/**","/movies/**").hasAnyAuthority("ROLE_USER").
+                antMatchers(HttpMethod.DELETE, "/characters/**","/movies/**").hasAnyAuthority("ROLE_USER").
                 anyRequest().authenticated().and().
                 cors().configurationSource(corsConfigurationSource()).
                 and().addFilter(customAuthenticationFilter).
