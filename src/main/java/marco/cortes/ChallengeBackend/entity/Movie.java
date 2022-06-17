@@ -13,9 +13,13 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String image;
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private Date createdAt;
+    @Column(nullable = false)
     private Integer score;
 
     @JoinColumn(nullable = false)
