@@ -1,6 +1,7 @@
 package marco.cortes.ChallengeBackend.controller;
 
 import lombok.RequiredArgsConstructor;
+import marco.cortes.ChallengeBackend.dto.PersonageDetails;
 import marco.cortes.ChallengeBackend.entity.Personage;
 import marco.cortes.ChallengeBackend.service.PersonageService;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class PersonageController {
 
     @GetMapping("")
     public ResponseEntity<?> all(@RequestParam(required = false) String name,
-                                        @RequestParam(required = false) String age,
-                                        @RequestParam(required = false) String movie) {
+                                 @RequestParam(required = false) String age,
+                                 @RequestParam(required = false) String movie) {
         Map<String, Object> data = new HashMap<>();
         try {
             data.put("ok", Boolean.TRUE);
@@ -46,7 +47,7 @@ public class PersonageController {
     public ResponseEntity<?> byId(@PathVariable Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
-            Personage p = personageService.findById(id);
+            PersonageDetails p = personageService.findById(id);
 
             if(p == null) {
                 data.put("ok", Boolean.FALSE);

@@ -1,6 +1,8 @@
 package marco.cortes.ChallengeBackend.util;
 
+import marco.cortes.ChallengeBackend.dto.MovieInfo;
 import marco.cortes.ChallengeBackend.dto.PersonageInfo;
+import marco.cortes.ChallengeBackend.entity.Movie;
 import marco.cortes.ChallengeBackend.entity.Personage;
 
 import java.util.ArrayList;
@@ -27,5 +29,19 @@ public class Util {
             aux = new PersonageInfo();
         }
         return infoList;
+    }
+
+    public static List<MovieInfo> movieInfo(List<Movie> movies) {
+        List<MovieInfo> movieList = new ArrayList<>();
+        MovieInfo aux = new MovieInfo();
+        for(Movie m: movies) {
+            aux.setId(m.getId());
+            aux.setImage(m.getImage());
+            aux.setTitle(m.getTitle());
+            aux.setCreatedAt(m.getCreatedAt());
+            movieList.add(aux);
+            aux = new MovieInfo();
+        }
+        return movieList;
     }
 }

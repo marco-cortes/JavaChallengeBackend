@@ -1,6 +1,7 @@
 package marco.cortes.ChallengeBackend.service;
 
 import lombok.RequiredArgsConstructor;
+import marco.cortes.ChallengeBackend.dto.PersonageDetails;
 import marco.cortes.ChallengeBackend.dto.PersonageInfo;
 import marco.cortes.ChallengeBackend.entity.Movie;
 import marco.cortes.ChallengeBackend.entity.Personage;
@@ -28,9 +29,22 @@ public class IPersonageService implements PersonageService {
     }
 
     @Override
-    public Personage findById(Long id) {
+    public PersonageDetails findById(Long id) {
         //Find Personage by id
-        return personageRepo.findById(id).orElse(null);
+        Personage p = personageRepo.findById(id).orElse(null);
+        if(p == null)
+            return null;
+
+        PersonageDetails pd = new PersonageDetails();
+        pd.setId(p.getId());
+        pd.setImage(p.getImage());
+        pd.setAge(p.getAge());
+        pd.setHistory(p.getHistory());
+        pd.setName(p.getName());
+        pd.setWeight(p.getWeight());
+        pd.setMovies(Util.movieInfo(movieRepo.getMoviesByUser_Id(p.getId())));
+
+        return pd;
     }
 
     @Override

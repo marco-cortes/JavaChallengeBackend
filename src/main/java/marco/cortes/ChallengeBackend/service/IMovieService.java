@@ -1,9 +1,9 @@
 package marco.cortes.ChallengeBackend.service;
 
 import lombok.RequiredArgsConstructor;
+import marco.cortes.ChallengeBackend.dto.MovieInfo;
 import marco.cortes.ChallengeBackend.entity.*;
 import marco.cortes.ChallengeBackend.repo.GenreRepo;
-import marco.cortes.ChallengeBackend.repo.MoviePersonageRepo;
 import marco.cortes.ChallengeBackend.repo.MovieRepo;
 import marco.cortes.ChallengeBackend.repo.PersonageRepo;
 import marco.cortes.ChallengeBackend.util.Util;
@@ -17,15 +17,16 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class IMovieService implements MovieService{
+public class IMovieService implements MovieService {
 
     private final MovieRepo movieRepo;
     private final PersonageRepo personageRepo;
-    private final MoviePersonageRepo moviePersonageRepo;
     private final GenreRepo genreRepo;
     @Override
     public Movie save(Movie movie) {
         movie.setCreatedAt(new Date(new java.util.Date().getTime()));
+        if(!(movie.getScore() >= 1 && movie.getScore() <= 5))
+            return null;
         return movieRepo.save(movie);
     }
 
@@ -35,26 +36,26 @@ public class IMovieService implements MovieService{
     }
 
     @Override
-    public List<Movie> search(String parameter, String value) {
+    public List<MovieInfo> search(String parameter, String value) {
         switch (parameter) {
             case "none": default:
-                return movieRepo.findAll();
+                return Util.movieInfo(movieRepo.findAll());
             case "name":
-                return movieRepo.getMoviesByTitle(value);
+                return Util.movieInfo(movieRepo.getMoviesByTitle(value));
             case "genre":
-                return movieRepo.getMoviesByGenre_Id(Long.parseLong(value));
+                return Util.movieInfo(movieRepo.getMoviesByGenre_Id(Long.parseLong(value)));
             case "order":
                 if(value.equals("ASC"))
-                    return movieRepo.findAll(Sort.by(Sort.Direction.ASC, "title"));
+                    return Util.movieInfo(movieRepo.findAll(Sort.by(Sort.Direction.ASC, "title")));
                 else if(value.equals("DESC"))
-                    return movieRepo.findAll(Sort.by(Sort.Direction.DESC, "title"));
+                    return Util.movieInfo(movieRepo.findAll(Sort.by(Sort.Direction.DESC, "title")));
                 else
-                    return movieRepo.findAll();
+                    return Util.movieInfo(movieRepo.findAll());
         }
     }
 
     @Override
-    public MoviePersonage addPersonage(Long idMovie, Long idPersonage) {
+    public Movie addPersonage(Long idMovie, Long idPersonage) {
         Movie m = findById(idMovie);
 
         if(m == null)
@@ -65,17 +66,13 @@ public class IMovieService implements MovieService{
         if(p == null)
             return null;
 
-        MoviePersonageFK pk = new MoviePersonageFK(idPersonage, idMovie);
-        MoviePersonage mp = new MoviePersonage();
-        mp.setId(pk);
-        mp.setMovie(m);
-        mp.setPersonage(p);
-
-        return moviePersonageRepo.save(mp);
+        m.getPersonages().add(p);
+        m = movieRepo.save(m);
+        return m;
     }
 
     @Override
-    public MoviePersonage removePersonage(Long idMovie, Long idPersonage) {
+    public Movie removePersonage(Long idMovie, Long idPersonage) {
         Movie m = findById(idMovie);
 
         if(m == null)
@@ -86,13 +83,10 @@ public class IMovieService implements MovieService{
         if(p == null)
             return null;
 
-        MoviePersonageFK pk = new MoviePersonageFK(idPersonage, idMovie);
-        MoviePersonage mp = new MoviePersonage();
-        mp.setId(pk);
-        mp.setMovie(m);
-        mp.setPersonage(p);
-        moviePersonageRepo.delete(mp);
-        return mp;
+
+        m.getPersonages().remove(p);
+        m = movieRepo.save(m);
+        return m;
     }
 
     @Override
@@ -109,7 +103,7 @@ public class IMovieService implements MovieService{
             old.setTitle(movie.getTitle());
         else if(Util.updateValidation(movie.getImage(), old.getImage()))
             old.setImage(movie.getImage());
-        else if(Util.updateValidation(movie.getScore(), old.getImage()))
+        else if(Util.updateValidation(movie.getScore(), old.getImage()) && movie.getScore() >= 1 && movie.getScore() <= 5)
             old.setScore(movie.getScore());
         else if(Util.updateValidation(movie.getGenre().getId(), old.getGenre().getId())) {
             old.setGenre(genreRepo.findById(movie.getGenre().getId()).orElse(null));
@@ -124,5 +118,10 @@ public class IMovieService implements MovieService{
             return null;
         movieRepo.delete(m);
         return m;
+    }
+
+    @Override
+    public Genre add(Genre genre) {
+        return genreRepo.save(genre);
     }
 }

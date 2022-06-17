@@ -1,8 +1,8 @@
 package marco.cortes.ChallengeBackend.controller;
 
 import lombok.RequiredArgsConstructor;
+import marco.cortes.ChallengeBackend.entity.Genre;
 import marco.cortes.ChallengeBackend.entity.Movie;
-import marco.cortes.ChallengeBackend.entity.MoviePersonage;
 import marco.cortes.ChallengeBackend.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -67,8 +67,15 @@ public class MovieController {
     public ResponseEntity<?> add(@RequestBody Movie movie) {
         Map<String, Object> data = new HashMap<>();
         try {
+            Movie m = movieService.save(movie);
+            if(m == null) {
+                data.put("ok", Boolean.FALSE);
+                data.put("message", "Score is not valid");
+                return ResponseEntity.badRequest().body(data);
+            }
+
             data.put("ok", Boolean.TRUE);
-            data.put("movie", movieService.save(movie));
+            data.put("movie", m);
             return ResponseEntity.ok(data);
         } catch (Exception e) {
             data.put("ok", Boolean.FALSE);
@@ -121,14 +128,14 @@ public class MovieController {
     public ResponseEntity<?> addCharacter(@PathVariable Long idMovie, @PathVariable Long idCharacter) {
         Map<String, Object> data = new HashMap<>();
         try {
-            MoviePersonage mp = movieService.addPersonage(idMovie, idCharacter);
-            if(mp == null) {
+            Movie m = movieService.addPersonage(idMovie, idCharacter);
+            if(m == null) {
                 data.put("ok", Boolean.FALSE);
                 data.put("message", "Saving error");
                 return ResponseEntity.badRequest().body(data);
             }
             data.put("ok", Boolean.TRUE);
-            data.put("movie_character", mp);
+            data.put("movie_character", m);
             return ResponseEntity.ok(data);
         } catch (Exception e) {
             data.put("ok", Boolean.FALSE);
@@ -141,14 +148,28 @@ public class MovieController {
     public ResponseEntity<?> deleteCharacter(@PathVariable Long idMovie, @PathVariable Long idCharacter) {
         Map<String, Object> data = new HashMap<>();
         try {
-            MoviePersonage mp = movieService.removePersonage(idMovie, idCharacter);
-            if(mp == null) {
+            Movie m = movieService.removePersonage(idMovie, idCharacter);
+            if(m == null) {
                 data.put("ok", Boolean.FALSE);
                 data.put("message", "Saving error");
                 return ResponseEntity.badRequest().body(data);
             }
             data.put("ok", Boolean.TRUE);
-            data.put("movie_character", mp);
+            data.put("movie_character", m);
+            return ResponseEntity.ok(data);
+        } catch (Exception e) {
+            data.put("ok", Boolean.FALSE);
+            data.put("message", "Error in server");
+            return ResponseEntity.badRequest().body(data);
+        }
+    }
+
+    @PostMapping("/genre/add")
+    public ResponseEntity<?> addGenre(@RequestBody Genre genre) {
+        Map<String, Object> data = new HashMap<>();
+        try {
+            data.put("ok", Boolean.TRUE);
+            data.put("genre", movieService.add(genre));
             return ResponseEntity.ok(data);
         } catch (Exception e) {
             data.put("ok", Boolean.FALSE);
