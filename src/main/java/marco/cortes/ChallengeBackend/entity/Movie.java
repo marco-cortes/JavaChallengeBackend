@@ -14,7 +14,7 @@ public class Movie {
     private Long id;
 
     private String image;
-    private String Title;
+    private String title;
     private Date createdAt;
     private Integer score;
 

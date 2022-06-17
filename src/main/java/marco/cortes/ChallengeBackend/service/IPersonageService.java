@@ -6,12 +6,12 @@ import marco.cortes.ChallengeBackend.entity.Movie;
 import marco.cortes.ChallengeBackend.entity.Personage;
 import marco.cortes.ChallengeBackend.repo.MovieRepo;
 import marco.cortes.ChallengeBackend.repo.PersonageRepo;
+import marco.cortes.ChallengeBackend.util.Util;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @Transactional
@@ -39,16 +39,16 @@ public class IPersonageService implements PersonageService {
 
         //If parameter is none, return all Personages
         if(parameter.equals("none"))
-            return personageInfo(personageRepo.findAll());
+            return Util.personageInfo(personageRepo.findAll());
         else if(parameter.equals("name"))
-            return personageInfo(personageRepo.findAllByName(value));
+            return Util.personageInfo(personageRepo.findAllByName(value));
         else if(parameter.equals("age"))
-            return personageInfo(personageRepo.findAllByAge(Integer.parseInt(value)));
+            return Util.personageInfo(personageRepo.findAllByAge(Integer.parseInt(value)));
         else {
             Movie movie = movieRepo.findById(Long.parseLong(value)).orElse(null);
             if(movie == null)
                 return new ArrayList<>();
-            return personageInfo(movie.getPersonages());
+            return Util.personageInfo(movie.getPersonages());
         }
     }
 
@@ -69,19 +69,19 @@ public class IPersonageService implements PersonageService {
 
         //Validations for values of object type Personage
 
-        if(updateValidation(personage.getAge(), old.getAge()))
+        if(Util.updateValidation(personage.getAge(), old.getAge()))
             old.setAge(personage.getAge());
 
-        if(updateValidation(personage.getHistory(), old.getHistory()))
+        if(Util.updateValidation(personage.getHistory(), old.getHistory()))
             old.setHistory(personage.getHistory());
 
-        if(updateValidation(personage.getImage(), old.getImage()))
+        if(Util.updateValidation(personage.getImage(), old.getImage()))
             old.setImage(personage.getImage());
 
-        if(updateValidation(personage.getName(), old.getName()))
+        if(Util.updateValidation(personage.getName(), old.getName()))
             old.setName(personage.getName());
 
-        if(updateValidation(personage.getWeight(), old.getWeight()))
+        if(Util.updateValidation(personage.getWeight(), old.getWeight()))
             old.setWeight(personage.getWeight());
 
         //update old Personage
@@ -99,27 +99,5 @@ public class IPersonageService implements PersonageService {
         //if personage is in database, will be deleted
         personageRepo.delete(personage);
         return personage;
-    }
-
-    //If new value is null or equal as old value, current value will not be updated
-    public Boolean updateValidation(Object newValue, Object oldValue) {
-        if(newValue == null)
-            return Boolean.FALSE;
-        else if(oldValue.equals(newValue))
-            return Boolean.FALSE;
-        return Boolean.TRUE;
-    }
-
-    public List<PersonageInfo> personageInfo(List<Personage> personages) {
-        List<PersonageInfo> infoList = new ArrayList<>();
-        PersonageInfo aux = new PersonageInfo();
-        for(Personage p: personages) {
-            aux.setId(p.getId());
-            aux.setImage(p.getImage());
-            aux.setName(p.getName());
-            infoList.add(aux);
-            aux = new PersonageInfo();
-        }
-        return infoList;
     }
 }
