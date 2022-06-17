@@ -116,6 +116,9 @@ public class IMovieService implements MovieService {
         Movie m = findById(id);
         if(m == null)
             return null;
+
+        m.getPersonages().clear();
+        movieRepo.save(m);
         movieRepo.delete(m);
         return m;
     }

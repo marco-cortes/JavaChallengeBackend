@@ -25,16 +25,16 @@ public class MovieController {
         try {
             data.put("ok", Boolean.TRUE);
             if(name != null) {
-                data.put("characters", movieService.search("name", name));
+                data.put("movies", movieService.search("name", name));
                 return ResponseEntity.ok(data);
             } else if (genre != null) {
-                data.put("characters", movieService.search("genre", genre));
+                data.put("movies", movieService.search("genre", genre));
                 return ResponseEntity.ok(data);
             } else if(order != null) {
-                data.put("characters", movieService.search("order", order));
+                data.put("movies", movieService.search("order", order));
                 return ResponseEntity.ok(data);
             }
-            data.put("characters", movieService.search("none", null));
+            data.put("movies", movieService.search("none", null));
             return ResponseEntity.ok(data);
         } catch (Exception e) {
             data.put("ok", Boolean.FALSE);

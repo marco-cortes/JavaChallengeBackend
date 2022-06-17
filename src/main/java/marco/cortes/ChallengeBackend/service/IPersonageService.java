@@ -110,6 +110,10 @@ public class IPersonageService implements PersonageService {
         //if personage is not in database, return null
         if(personage == null)
             return null;
+
+        //if personage exists in any movie, delete this relationship
+        movieRepo.deleteMoviesPersonages(id);
+
         //if personage is in database, will be deleted
         personageRepo.delete(personage);
         return personage;
