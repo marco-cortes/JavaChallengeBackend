@@ -1,0 +1,1977 @@
+{
+	"info": {
+		"_postman_id": "c54962f2-f81a-4b15-a22a-a34ad04abacc",
+		"name": "Java Backend Challenge",
+		"description": "## Backend Challenge Java API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "GENRE ADD",
+					"_postman_id": "201bdd6f-6fdd-4e2f-84c4-0b5406401b1f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Fantasy\",\r\n    \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movies/genre/add",
+						"description": "## Genre add\n\nEndpoint for save an genre in the database."
+					},
+					"response": [
+						{
+							"id": "e2dd7b85-ada5-48ca-a64a-a76ed778712b",
+							"name": "GENRE ADD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Action\",\r\n    \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/genre/add"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:17:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"genre\": {\n        \"id\": 1,\n        \"name\": \"Action\",\n        \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n    },\n    \"ok\": true\n}"
+						},
+						{
+							"id": "1387f030-9928-4c1d-bda9-ddeacb5f0c8d",
+							"name": "GENRE ADD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Fantasy\",\r\n    \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/genre/add"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:19:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"genre\": {\n        \"id\": 2,\n        \"name\": \"Fantasy\",\n        \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIE ADD",
+					"_postman_id": "12bfe139-fe3a-4436-a097-712f7c45cd77",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"title\": \"Ice Age\",\r\n    \"score\": 5,\r\n    \"genre\": {\r\n        \"id\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movies/add",
+						"description": "## Movie add\n\nEndpoint for save a movie in the database."
+					},
+					"response": [
+						{
+							"id": "38892c53-7faa-4958-b3f4-349033137b6d",
+							"name": "MOVIE ADD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"title\": \"League of Legends\",\r\n    \"score\": 3,\r\n    \"genre\": {\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/add"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:19:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"League of Legends\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 3,\n        \"genre\": {\n            \"id\": 1,\n            \"name\": null,\n            \"image\": null\n        },\n        \"personages\": null\n    },\n    \"ok\": true\n}"
+						},
+						{
+							"id": "3de734da-295e-4c0d-bfae-2e5ddf1e42d4",
+							"name": "MOVIE ADD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"title\": \"Ice Age\",\r\n    \"score\": 5,\r\n    \"genre\": {\r\n        \"id\": 2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/add"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:33:39 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie\": {\n        \"id\": 2,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"Ice Age\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 5,\n        \"genre\": {\n            \"id\": 2,\n            \"name\": null,\n            \"image\": null\n        },\n        \"personages\": null\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIE UPDATE",
+					"_postman_id": "8ea44e9b-2355-4ea9-8211-1db9e4e48e7c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"title\": \"Arcane\",\r\n    \"score\": 5,\r\n    \"genre\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movies/1/update",
+						"description": "## Movie update\n\nEndpoint for update a movie in the database."
+					},
+					"response": [
+						{
+							"id": "eecef3ae-c133-42b7-ae96-3116dab30d53",
+							"name": "MOVIE UPDATE",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"title\": \"Arcane\",\r\n    \"score\": 5,\r\n    \"genre\": {\r\n        \"id\": 1\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/1/update"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:36:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"Arcane\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 5,\n        \"genre\": {\n            \"id\": 1,\n            \"name\": \"Action\",\n            \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n        },\n        \"personages\": []\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIE DELETE",
+					"_postman_id": "ad0b115a-b3d3-46e8-b530-73dbd01385a5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movies/2/delete",
+						"description": "## Movie delete\n\nEndpoint for delete a movie in the database."
+					},
+					"response": [
+						{
+							"id": "3485c617-d4ea-453c-817a-b755ec16481a",
+							"name": "MOVIE DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/2/delete"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:37:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie\": {\n        \"id\": 2,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"Ice Age\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 5,\n        \"genre\": {\n            \"id\": 2,\n            \"name\": \"Fantasy\",\n            \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n        },\n        \"personages\": []\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIE ADD CHARACTER",
+					"_postman_id": "1c8049ee-cca0-499c-b370-9aa425202eae",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movies/3/characters/1",
+						"description": "## Movie character add\n\nEndpoint for add an character off a movie."
+					},
+					"response": [
+						{
+							"id": "27abbb29-0850-45f6-ac31-f5e8b75c1fa5",
+							"name": "MOVIE ADD CHARACTER",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/1/characters/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:37:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie_character\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"Arcane\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 5,\n        \"genre\": {\n            \"id\": 1,\n            \"name\": \"Action\",\n            \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n        },\n        \"personages\": [\n            {\n                \"id\": 1,\n                \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n                \"name\": \"Rhaast\",\n                \"age\": 40,\n                \"weight\": 77.5,\n                \"history\": \"History for Rhaast\"\n            }\n        ]\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIE REMOVE CHARACTER",
+					"_postman_id": "4f4a6634-4c07-4b57-acf9-050aabd475dd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/movies/1/characters/1",
+						"description": "## Movie character remove\n\nEndpoint for remove an character of a movie."
+					},
+					"response": [
+						{
+							"id": "49c761a9-1a03-4ff0-a363-779a2581708e",
+							"name": "MOVIE REMOVE CHARACTER",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/movies/1/characters/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:37:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie_character\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"Arcane\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 5,\n        \"genre\": {\n            \"id\": 1,\n            \"name\": \"Action\",\n            \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n        },\n        \"personages\": []\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "ALL MOVIES",
+					"_postman_id": "b753d0e4-bd8d-4c2c-a9ff-1d9bf72819b3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/movies",
+						"description": "## All movies\n\nEndpoint for get all movies from database."
+					},
+					"response": [
+						{
+							"id": "68a4f185-15dc-4f16-a075-5cccf8af70f2",
+							"name": "ALL MOVIES",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/movies"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:51:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movies\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Arcane\",\n            \"createdAt\": \"2022-06-17\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIES BY NAME",
+					"_postman_id": "e909cb71-9f57-4570-a676-ac124ee7e3f2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies?name=Arcane",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Arcane"
+								}
+							]
+						},
+						"description": "## Movies by name\n\nEndpoint for get all movies from database by name."
+					},
+					"response": [
+						{
+							"id": "78745a5f-7960-4ba5-8eb3-4059104cdb51",
+							"name": "MOVIES BY NAME",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?name=Arcane",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Arcane"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:51:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movies\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Arcane\",\n            \"createdAt\": \"2022-06-17\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIES BY GENRE",
+					"_postman_id": "cc262c51-edcd-4ca1-8f17-5fc06ab4a791",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies?genre=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "1"
+								}
+							]
+						},
+						"description": "## Movies by genre\n\nEndpoint for get all movies from database by genre."
+					},
+					"response": [
+						{
+							"id": "260c0ba0-d76d-4c31-bd1c-af9b2a8e56b5",
+							"name": "MOVIES BY GENRE",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?genre=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "genre",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:51:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movies\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Arcane\",\n            \"createdAt\": \"2022-06-17\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIES IN ORDER ASC",
+					"_postman_id": "92611828-63d8-46a9-9bc2-47d09dabfa3d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies?order=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "ASC"
+								}
+							]
+						},
+						"description": "## Movies by ascendant order\n\nEndpoint for get all movies in ascendant order from database."
+					},
+					"response": [
+						{
+							"id": "dbacc8ff-54d3-4a4c-b0b1-0df94fd25994",
+							"name": "MOVIES IN ORDER ASC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?order=ASC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 02:34:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movies\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"League of legends\",\n            \"createdAt\": \"2022-06-16\"\n        },\n        {\n            \"id\": 2,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Movie 1\",\n            \"createdAt\": \"2022-06-16\"\n        },\n        {\n            \"id\": 3,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Movie 2\",\n            \"createdAt\": \"2022-06-16\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIES IN ORDER DESC",
+					"_postman_id": "950ca7d0-7ab7-44d3-bb58-e86ad78dec13",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/movies?order=DESC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "DESC"
+								}
+							]
+						},
+						"description": "## Movies in descendent order\n\nEndpoint for get all movies in descendent order from database."
+					},
+					"response": [
+						{
+							"id": "6d566941-06df-4fa0-b0c2-9092ffb2f430",
+							"name": "MOVIES IN ORDER DESC",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/movies?order=DESC",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 02:34:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movies\": [\n        {\n            \"id\": 3,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Movie 2\",\n            \"createdAt\": \"2022-06-16\"\n        },\n        {\n            \"id\": 2,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"Movie 1\",\n            \"createdAt\": \"2022-06-16\"\n        },\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"title\": \"League of legends\",\n            \"createdAt\": \"2022-06-16\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "MOVIE BY ID",
+					"_postman_id": "f0c46276-7282-42c6-bddc-ff4b19353f9a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/movies/1",
+						"description": "## Movie by id\n\nEndpoint for get a movie from database by id."
+					},
+					"response": [
+						{
+							"id": "49b2c6e7-9bcf-47b2-b80b-e7502b170b06",
+							"name": "MOVIE BY ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/movies/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:52:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"movie\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"title\": \"Arcane\",\n        \"createdAt\": \"2022-06-17\",\n        \"score\": 5,\n        \"genre\": {\n            \"id\": 1,\n            \"name\": \"Action\",\n            \"image\": \"https://cdn.alfabetajuega.com/alfabetajuega/2022/04/going-merry-live-action-one-piece.png\"\n        },\n        \"personages\": [\n            {\n                \"id\": 1,\n                \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n                \"name\": \"Rhaast\",\n                \"age\": 40,\n                \"weight\": 77.5,\n                \"history\": \"History for Rhaast\"\n            }\n        ]\n    },\n    \"ok\": true\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "91185b46-bb7c-4a8a-ad4b-abcc610e6ffc",
+			"description": "Folder for all movies endpoints."
+		},
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "CHARACTER ADD",
+					"_postman_id": "f3d12709-1027-4ef0-aab3-5c4df54a6ed4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"name\": \"Kayn\",\r\n    \"age\": 15,\r\n    \"weight\": 67.5,\r\n    \"history\": \"History for Kayn\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/characters/add",
+						"description": "## Character add\n\nEndpoint for save an character in the database."
+					},
+					"response": [
+						{
+							"id": "84972d30-7107-48fd-b487-049f0ed112c0",
+							"name": "CHARACTER ADD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"name\": \"Rhaast\",\r\n    \"age\": 23,\r\n    \"weight\": 77.5,\r\n    \"history\": \"History for Rhaast\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/characters/add"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:11:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"character\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"name\": \"Rhaast\",\n        \"age\": 23,\n        \"weight\": 77.5,\n        \"history\": \"History for Rhaast\"\n    },\n    \"ok\": true\n}"
+						},
+						{
+							"id": "8849d41c-720b-47d7-b654-fa39f32fb288",
+							"name": "CHARACTER ADD",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"name\": \"Kayn\",\r\n    \"age\": 15,\r\n    \"weight\": 67.5,\r\n    \"history\": \"History for Kayn\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/characters/add"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:11:35 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"character\": {\n        \"id\": 2,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"name\": \"Kayn\",\n        \"age\": 15,\n        \"weight\": 67.5,\n        \"history\": \"History for Kayn\"\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARACTER UPDATE",
+					"_postman_id": "a466c526-7cd2-4ee5-b330-e757f47973f3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"name\": \"Rhaast\",\r\n    \"age\": 40,\r\n    \"weight\": 77.5,\r\n    \"history\": \"History for Rhaast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/characters/1/update",
+						"description": "## Character update\n\nEndpoint for update an character in the database."
+					},
+					"response": [
+						{
+							"id": "97522858-21e9-4b1e-99c9-23e4919695b7",
+							"name": "CHARACTER UPDATE",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\r\n    \"name\": \"Rhaast\",\r\n    \"age\": 40,\r\n    \"weight\": 77.5,\r\n    \"history\": \"History for Rhaast\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/characters/1/update"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:12:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"character\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"name\": \"Rhaast\",\n        \"age\": 40,\n        \"weight\": 77.5,\n        \"history\": \"History for Rhaast\"\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARACTER DELETE",
+					"_postman_id": "4df2f846-8d21-482e-9683-3e2c9027892e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/characters/1/delete",
+						"description": "## Character delete\n\nEndpoint for delete an character in the database."
+					},
+					"response": [
+						{
+							"id": "a236e976-77aa-4052-80c4-5de572cd6e03",
+							"name": "CHARACTER DELETE",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/characters/2/delete"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:13:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"character\": {\n        \"id\": 2,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"name\": \"Kayn\",\n        \"age\": 15,\n        \"weight\": 67.5,\n        \"history\": \"History for Kayn\"\n    },\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "ALL CHARACTERS",
+					"_postman_id": "5e2e02e0-cc62-40e5-b142-1eb4e81999ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/characters",
+						"description": "## All characters\n\nEndpoint for get all characters from database."
+					},
+					"response": [
+						{
+							"id": "22899a85-4027-4965-8c5b-14f5744c294d",
+							"name": "ALL CHARACTERS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/characters"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:13:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"characters\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"name\": \"Rhaast\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARACTERS BY NAME",
+					"_postman_id": "bcf84a60-3a19-4466-bdfe-a020c0aa8df5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters?name=Rhaast",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Rhaast"
+								}
+							]
+						},
+						"description": "## Characters by name\n\nEndpoint for get all characters from database by name."
+					},
+					"response": [
+						{
+							"id": "e80d3204-2a2c-4fc0-8d41-c1e69af06fe7",
+							"name": "CHARACTERS BY NAME",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters?name=Rhaast",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Rhaast"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 02:28:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"characters\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"name\": \"Rhaast\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARACTERS BY AGE",
+					"_postman_id": "a7797f79-39de-44d6-9399-853a18e8835f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters?age=40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "40"
+								}
+							]
+						},
+						"description": "## Characters by age\n\nEndpoint for get all characters from database by age."
+					},
+					"response": [
+						{
+							"id": "0f15d303-9fc2-4448-b786-e2fe8874ea09",
+							"name": "CHARACTERS BY AGE",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters?age=40",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "age",
+											"value": "40"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:14:36 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"characters\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"name\": \"Rhaast\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARACTERS BY MOVIE",
+					"_postman_id": "96fdbbe8-eff0-4244-82df-266337433493",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/characters?movie=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"characters"
+							],
+							"query": [
+								{
+									"key": "movie",
+									"value": "1"
+								}
+							]
+						},
+						"description": "## Characters by movie\n\nEndpoint for get all characters from database by movie id."
+					},
+					"response": [
+						{
+							"id": "0d91ff69-bdfd-4b06-af1a-df79e9b7ff90",
+							"name": "CHARACTERS BY MOVIE",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/characters?movie=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"characters"
+									],
+									"query": [
+										{
+											"key": "movie",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:48:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"characters\": [\n        {\n            \"id\": 1,\n            \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n            \"name\": \"Rhaast\"\n        }\n    ],\n    \"ok\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARACTERS BY ID",
+					"_postman_id": "7a79e10e-1a87-40d3-9b41-a780a07c38e6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MDIwfQ.Id4tusqQ1vyYmI1bf7LcdXJb0TYtdQ2iu59qg_0qv0w",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/characters/1",
+						"description": "## Characters by Id\n\nEndpoint for get all characters from database by id."
+					},
+					"response": [
+						{
+							"id": "f91bbe80-6278-4e9a-9bc0-f0874506ddaf",
+							"name": "CHARACTERS BY ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/characters/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 19:48:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"character\": {\n        \"id\": 1,\n        \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n        \"name\": \"Rhaast\",\n        \"age\": 40,\n        \"weight\": 77.5,\n        \"history\": \"History for Rhaast\",\n        \"movies\": [\n            {\n                \"id\": 1,\n                \"image\": \"https://avatars.githubusercontent.com/u/84252964?v=4\",\n                \"title\": \"Arcane\",\n                \"createdAt\": \"2022-06-17\"\n            }\n        ]\n    },\n    \"ok\": true\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "92d8f52a-04a5-4914-9cc4-4f94ba1f6105",
+			"description": "Folder for all characters endpoints."
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "AUTH REGISTER",
+					"_postman_id": "51ebbf48-3ec6-4343-ad71-2dcc8ce820c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mootscortes@gmail.com\",\r\n    \"password\": \"marco1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/auth/register",
+						"description": "## Auth register\n\nEndpoint for save an user in the database."
+					},
+					"response": [
+						{
+							"id": "bc6c15af-2100-44c7-9c1f-3b8d5e346253",
+							"name": "AUTH REGISTER",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"marco@email.com\",\r\n    \"password\": \"marco1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/auth/register"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 21:29:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"id\": 1,\n    \"email\": \"marco@email.com\",\n    \"password\": \"$2a$10$p6btAEZzM42LjbqElCjGSOEE6MBJJLIobl7LwHPjocMnw0cSeNeYC\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH LOGIN",
+					"_postman_id": "e8071e75-562c-4269-b280-42e5688850c5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login?email=marco@email.com&password=marco1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "marco@email.com"
+								},
+								{
+									"key": "password",
+									"value": "marco1234"
+								}
+							]
+						},
+						"description": "## Auth login\n\nEndpoint for login user."
+					},
+					"response": [
+						{
+							"id": "c8c2a0f6-2958-4dbd-aa1b-b9ce558ffc8d",
+							"name": "AUTH LOGIN",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"marco@email.com\",\r\n    \"password\": \"marco1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/auth/login?email=marco@email.com&password=marco1234",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "marco@email.com"
+										},
+										{
+											"key": "password",
+											"value": "marco1234"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "502"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Jun 2022 21:33:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"access_token\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2FwaS9hdXRoL2xvZ2luIiwiZXhwIjoxNjU1NTA1MjI2fQ.JUbPYB0P-6V_T2LFYCY4tNvju4G3GP1fIzgFWf-a4OQ\",\n    \"refresh_token\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJjb0BlbWFpbC5jb20iLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2F1dGgvbG9naW4iLCJleHAiOjE2NTU1MDUyMjZ9.08WY0y65RhA2gpQFbYjKfZsdHc2Z6RbZ-aD15FEl6JY\",\n    \"email\": \"marco@email.com\"\n}"
+						}
+					]
+				}
+			],
+			"_postman_id": "38edbcd1-ed84-44b8-92b3-73ef4d148f62",
+			"description": "Folder for auth endpoints."
+		}
+	]
+}
