@@ -4,9 +4,13 @@ import marco.cortes.ChallengeBackend.dto.MovieInfo;
 import marco.cortes.ChallengeBackend.dto.PersonageInfo;
 import marco.cortes.ChallengeBackend.entity.Movie;
 import marco.cortes.ChallengeBackend.entity.Personage;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Util {
     //If new value is null or equal as old value, current value will not be updated
@@ -43,5 +47,16 @@ public class Util {
             aux = new MovieInfo();
         }
         return movieList;
+    }
+
+    public static Map<String, Object> errors (MethodArgumentNotValidException ex) {
+        Map<String, Object> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        errors.put("ok", Boolean.FALSE);
+        return errors;
     }
 }

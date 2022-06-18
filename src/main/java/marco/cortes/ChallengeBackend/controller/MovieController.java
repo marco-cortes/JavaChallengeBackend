@@ -4,9 +4,15 @@ import lombok.RequiredArgsConstructor;
 import marco.cortes.ChallengeBackend.entity.Genre;
 import marco.cortes.ChallengeBackend.entity.Movie;
 import marco.cortes.ChallengeBackend.service.MovieService;
+import marco.cortes.ChallengeBackend.util.Util;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +50,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> byId(@PathVariable Long id) {
+    public ResponseEntity<?> byId(@PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie movie = movieService.findById(id);
@@ -64,7 +70,7 @@ public class MovieController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody Movie movie) {
+    public ResponseEntity<?> add(@Valid @RequestBody Movie movie) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie m = movieService.save(movie);
@@ -85,7 +91,7 @@ public class MovieController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<?> update(@RequestBody Movie movie, @PathVariable Long id) {
+    public ResponseEntity<?> update(@RequestBody Movie movie, @PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie newMovie = movieService.update(movie, id);
@@ -105,7 +111,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie movie = movieService. delete(id);
@@ -125,7 +131,9 @@ public class MovieController {
     }
 
     @PostMapping("/{idMovie}/characters/{idCharacter}")
-    public ResponseEntity<?> addCharacter(@PathVariable Long idMovie, @PathVariable Long idCharacter) {
+    public ResponseEntity<?> addCharacter(
+            @PathVariable @NotNull(message = "Movie id is required") Long idMovie,
+            @PathVariable @NotNull(message = "Character id is required") Long idCharacter) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie m = movieService.addPersonage(idMovie, idCharacter);
@@ -145,7 +153,8 @@ public class MovieController {
     }
 
     @DeleteMapping("/{idMovie}/characters/{idCharacter}")
-    public ResponseEntity<?> deleteCharacter(@PathVariable Long idMovie, @PathVariable Long idCharacter) {
+    public ResponseEntity<?> deleteCharacter(@PathVariable @NotNull(message = "Movie id is required") Long idMovie,
+                                             @PathVariable @NotNull(message = "Movie id is required") Long idCharacter) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie m = movieService.removePersonage(idMovie, idCharacter);
@@ -165,7 +174,7 @@ public class MovieController {
     }
 
     @PostMapping("/genre/add")
-    public ResponseEntity<?> addGenre(@RequestBody Genre genre) {
+    public ResponseEntity<?> addGenre(@Valid @RequestBody Genre genre) {
         Map<String, Object> data = new HashMap<>();
         try {
             data.put("ok", Boolean.TRUE);
@@ -176,5 +185,11 @@ public class MovieController {
             data.put("message", "Error in server");
             return ResponseEntity.badRequest().body(data);
         }
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, Object> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        return Util.errors(ex);
     }
 }

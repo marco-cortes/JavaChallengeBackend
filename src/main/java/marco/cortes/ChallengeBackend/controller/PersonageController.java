@@ -4,9 +4,14 @@ import lombok.RequiredArgsConstructor;
 import marco.cortes.ChallengeBackend.dto.PersonageDetails;
 import marco.cortes.ChallengeBackend.entity.Personage;
 import marco.cortes.ChallengeBackend.service.PersonageService;
+import marco.cortes.ChallengeBackend.util.Util;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,11 +49,10 @@ public class PersonageController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> byId(@PathVariable Long id) {
+    public ResponseEntity<?> byId(@PathVariable @NotNull(message = "Character id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             PersonageDetails p = personageService.findById(id);
-
             if(p == null) {
                 data.put("ok", Boolean.FALSE);
                 data.put("message", "Character not found");
@@ -67,7 +71,7 @@ public class PersonageController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody Personage personage) {
+    public ResponseEntity<?> add(@Valid @RequestBody Personage personage) {
         Map<String, Object> data = new HashMap<>();
         try {
             data.put("ok", Boolean.TRUE);
@@ -81,7 +85,7 @@ public class PersonageController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<?> update(@RequestBody Personage personage, @PathVariable Long id) {
+    public ResponseEntity<?> update(@RequestBody Personage personage, @PathVariable @NotNull(message = "Character id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Personage p = personageService.update(personage, id);
@@ -103,7 +107,7 @@ public class PersonageController {
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable @NotNull(message = "Character id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Personage p = personageService.delete(id);
@@ -122,5 +126,11 @@ public class PersonageController {
             data.put("message", "Deleting error");
             return ResponseEntity.badRequest().body(data);
         }
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, Object> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        return Util.errors(ex);
     }
 }
