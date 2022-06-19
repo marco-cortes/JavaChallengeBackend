@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class MovieControllerTest extends AbstractTest {
+class TestBMovieController extends AbstractTest {
 
     @Override
     @BeforeEach
@@ -214,88 +214,5 @@ class MovieControllerTest extends AbstractTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
-    }
-
-    @Test
-    void updateMovie() throws Exception {
-        String uri = "/movies/1/update";
-        Genre genre_1 = new Genre();
-        genre_1.setId(1L);
-        genre_1.setName("Genre 1");
-        genre_1.setImage("Genre Image 1");
-
-        Movie movie_1 = new Movie();
-        movie_1.setId(1L);
-        movie_1.setTitle("League of legends");
-        movie_1.setImage("Image 1");
-        movie_1.setGenre(genre_1);
-        movie_1.setScore(2);
-
-        mvc.perform(MockMvcRequestBuilders.put(uri)
-                        .content(mapToJson(movie_1))
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie.id").exists());
-    }
-
-    @Test
-    void updateMovieNotFound() throws Exception {
-        String uri = "/movies/9999999/update";
-        Genre genre_1 = new Genre();
-        genre_1.setId(999999L);
-        genre_1.setName("Genre 1");
-        genre_1.setImage("Genre Image 1");
-
-        Movie movie_1 = new Movie();
-        movie_1.setId(1L);
-        movie_1.setTitle("League of legends 2");
-        movie_1.setImage("Image 1");
-        movie_1.setScore(2);
-        movie_1.setGenre(genre_1);
-
-        mvc.perform(MockMvcRequestBuilders.put(uri)
-                        .content(mapToJson(movie_1))
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
-    }
-
-
-    @Test
-    void deleteMovie() throws Exception {
-        String uri = "/movies/1/delete";
-        mvc.perform(MockMvcRequestBuilders.delete(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie.id").exists());
-    }
-
-    @Test
-    void deleteMovieNotFound() throws Exception {
-        String uri = "/movies/1/delete";
-        mvc.perform(MockMvcRequestBuilders.delete(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
-    }
-
-    @Test
-    void addCharacter() {
-    }
-
-    @Test
-    void deleteCharacter() {
     }
 }
