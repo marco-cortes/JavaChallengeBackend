@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class TestAUserController extends AbstractTest {
-
+class UserControllerTest extends AbstractTest {
     @Override
     @BeforeEach
     public void setUp() {
@@ -24,9 +24,9 @@ class TestAUserController extends AbstractTest {
         user.setPassword("test1234");
         String inputJson = super.mapToJson(user);
         mvc.perform(MockMvcRequestBuilders.post(uri)
-                .content(inputJson)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
+                        .content(inputJson)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").exists());
     }

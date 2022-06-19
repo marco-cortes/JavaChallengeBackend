@@ -9,8 +9,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class TestDPersonageController extends AbstractTest {
-
+class CharacterAPostTest extends AbstractTest {
     @Override
     @BeforeEach
     public void setUp() {
@@ -69,53 +68,5 @@ class TestDPersonageController extends AbstractTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"));
-    }
-
-    @Test
-    void getCharacters() throws Exception {
-        String uri = "/characters";
-        mvc.perform(MockMvcRequestBuilders.get(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.characters").exists());
-
-        mvc.perform(MockMvcRequestBuilders.get(uri+"?name=Character 1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.characters").exists());
-
-        mvc.perform(MockMvcRequestBuilders.get(uri+"?age=25")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.characters").exists());
-
-        mvc.perform(MockMvcRequestBuilders.get(uri+"?movie=2")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.characters").exists());
-    }
-
-    @Test
-    void characterById() throws Exception {
-        String uri = "/characters/1";
-        mvc.perform(MockMvcRequestBuilders.get(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.character").exists());
     }
 }

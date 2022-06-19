@@ -10,8 +10,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class TestBMovieController extends AbstractTest {
-
+class MovieAPostTest extends AbstractTest {
     @Override
     @BeforeEach
     public void setUp() {
@@ -154,65 +153,5 @@ class TestBMovieController extends AbstractTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"));
 
-    }
-
-    @Test
-    void getMovies() throws Exception {
-        String uri = "/movies";
-        mvc.perform(MockMvcRequestBuilders.get(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movies").exists());
-
-        mvc.perform(MockMvcRequestBuilders.get(uri+"?name=movie_1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movies").exists());
-
-        mvc.perform(MockMvcRequestBuilders.get(uri+"?genre=1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movies").exists());
-
-        mvc.perform(MockMvcRequestBuilders.get(uri+"?order=ASC")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movies").exists());
-    }
-
-    @Test
-    void movieById() throws Exception {
-        String uri = "/movies/1";
-        mvc.perform(MockMvcRequestBuilders.get(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie.id").exists());
-    }
-
-    @Test
-    void movieByIdNotFound() throws Exception {
-        String uri = "/movies/9999999";
-        mvc.perform(MockMvcRequestBuilders.get(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
     }
 }

@@ -10,8 +10,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class TestCMovieController extends AbstractTest {
-
+class MovieCPutTest extends AbstractTest {
     @Override
     @BeforeEach
     public void setUp() {
@@ -60,31 +59,6 @@ class TestCMovieController extends AbstractTest {
 
         mvc.perform(MockMvcRequestBuilders.put(uri)
                         .content(mapToJson(movie_1))
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("false"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").exists());
-    }
-
-
-    @Test
-    void deleteMovie() throws Exception {
-        String uri = "/movies/1/delete";
-        mvc.perform(MockMvcRequestBuilders.delete(uri)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", token)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value("true"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.movie.id").exists());
-    }
-
-    @Test
-    void deleteMovieNotFound() throws Exception {
-        String uri = "/movies/9999/delete";
-        mvc.perform(MockMvcRequestBuilders.delete(uri)
                         .contentType(MediaType.APPLICATION_JSON)
                         .header("Authorization", token)
                         .accept(MediaType.APPLICATION_JSON))
