@@ -24,7 +24,7 @@ public class MovieController {
     private final MovieService movieService;
 
     @GetMapping("")
-    public ResponseEntity<?> all(@RequestParam(required = false) String name,
+    public ResponseEntity<?> getMovies(@RequestParam(required = false) String name,
                                  @RequestParam(required = false) String genre,
                                  @RequestParam(required = false) String order) {
         Map<String, Object> data = new HashMap<>();
@@ -50,7 +50,7 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> byId(@PathVariable @NotNull(message = "Movie id is required") Long id) {
+    public ResponseEntity<?> movieById(@PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie movie = movieService.findById(id);
@@ -70,7 +70,7 @@ public class MovieController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@Valid @RequestBody Movie movie) {
+    public ResponseEntity<?> addMovie(@Valid @RequestBody Movie movie) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie m = movieService.save(movie);
@@ -91,7 +91,7 @@ public class MovieController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<?> update(@RequestBody Movie movie, @PathVariable @NotNull(message = "Movie id is required") Long id) {
+    public ResponseEntity<?> updateMovie(@RequestBody Movie movie, @PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie newMovie = movieService.update(movie, id);
@@ -111,7 +111,7 @@ public class MovieController {
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> delete(@PathVariable @NotNull(message = "Movie id is required") Long id) {
+    public ResponseEntity<?> deleteMovie(@PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie movie = movieService. delete(id);

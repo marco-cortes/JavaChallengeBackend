@@ -23,7 +23,7 @@ public class PersonageController {
     private final PersonageService personageService;
 
     @GetMapping("")
-    public ResponseEntity<?> all(@RequestParam(required = false) String name,
+    public ResponseEntity<?> getCharacters(@RequestParam(required = false) String name,
                                  @RequestParam(required = false) String age,
                                  @RequestParam(required = false) String movie) {
         Map<String, Object> data = new HashMap<>();
@@ -49,7 +49,7 @@ public class PersonageController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> byId(@PathVariable @NotNull(message = "Character id is required") Long id) {
+    public ResponseEntity<?> characterById(@PathVariable @NotNull(message = "Character id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             PersonageDetails p = personageService.findById(id);
@@ -71,7 +71,7 @@ public class PersonageController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@Valid @RequestBody Personage personage) {
+    public ResponseEntity<?> addCharacter(@Valid @RequestBody Personage personage) {
         Map<String, Object> data = new HashMap<>();
         try {
             data.put("ok", Boolean.TRUE);
@@ -85,7 +85,7 @@ public class PersonageController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<?> update(@RequestBody Personage personage, @PathVariable @NotNull(message = "Character id is required") Long id) {
+    public ResponseEntity<?> updateCharacter(@RequestBody Personage personage, @PathVariable @NotNull(message = "Character id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Personage p = personageService.update(personage, id);
@@ -107,7 +107,7 @@ public class PersonageController {
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<?> delete(@PathVariable @NotNull(message = "Character id is required") Long id) {
+    public ResponseEntity<?> deleteCharacter(@PathVariable @NotNull(message = "Character id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Personage p = personageService.delete(id);
