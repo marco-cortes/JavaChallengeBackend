@@ -28,7 +28,7 @@ public class Movie {
     @Column(nullable = false)
     private Date createdAt;
 
-    @NotBlank(message = "Score is required")
+    @NotNull(message = "Score is required")
     @Min(value = 1, message = "Age must be greater than 1 ")
     @Max(value = 5, message = "Age must be less than 5")
     @Column(nullable = false)

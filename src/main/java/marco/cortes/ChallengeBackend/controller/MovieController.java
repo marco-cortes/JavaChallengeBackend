@@ -91,7 +91,7 @@ public class MovieController {
     }
 
     @PutMapping("/{id}/update")
-    public ResponseEntity<?> updateMovie(@RequestBody Movie movie, @PathVariable @NotNull(message = "Movie id is required") Long id) {
+    public ResponseEntity<?> updateMovie(@Valid @RequestBody Movie movie, @PathVariable @NotNull(message = "Movie id is required") Long id) {
         Map<String, Object> data = new HashMap<>();
         try {
             Movie newMovie = movieService.update(movie, id);
